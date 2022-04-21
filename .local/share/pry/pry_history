@@ -1,0 +1,12 @@
+todo_params
+params
+todo_params
+params
+params[:todo]
+params
+params[:controller]
+params[:action]
+User.all
+User.last
+User.find_by(uid: ylS6gXCmGyUGRK0jIKodJvtaQp23)
+User.find_by(uid: 'ylS6gXCmGyUGRK0jIKodJvtaQp23')

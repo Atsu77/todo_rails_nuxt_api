@@ -1,0 +1,13 @@
+### GET todo一覧を取得
+GET http://localhost:3001/api/v1/todos
+
+### POST todoを登録
+POST http://localhost:3001/api/v1/todos
+Content-Type: application/json
+
+{
+  "todo": {
+    "name": "test",
+    "user_id": "1"
+  }
+}

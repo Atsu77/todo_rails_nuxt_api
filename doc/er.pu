@@ -1,0 +1,22 @@
+@startuml er
+skinparam monochrome true 
+skinparam shadowing false
+
+entity users {
+  - id
+  --
+  name(名前)
+  uid(認証用ID)
+  email(メールアドレス)
+}
+
+entity todos {
+  - id
+  --
+  # user_id(ユーザーID)
+  name(タイトル)
+}
+
+users ||-r-{ todos
+
+@enduml 

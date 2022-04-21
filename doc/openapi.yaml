@@ -1,0 +1,256 @@
+---
+openapi: 3.0.3
+info:
+  title: myapp
+  version: 1.0.0
+servers: []
+paths:
+  "/api/v1/todos":
+    get:
+      summary: index
+      tags:
+      - Api::V1::Todo
+      responses:
+        '200':
+          description: リクエストが成功すること
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    user_id:
+                      type: integer
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+              example:
+              - id: 1
+                name: Alias necessitatibus sunt animi.
+                user_id: 1
+                created_at: '2022-04-16T02:12:34.828Z'
+                updated_at: '2022-04-16T02:12:34.828Z'
+    post:
+      summary: create
+      tags:
+      - Api::V1::Todo
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                todo:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    user_id:
+                      type: string
+            example:
+              todo:
+                name: test
+                user_id: '1'
+      responses:
+        '201':
+          description: リクエストが成功すること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  user_id:
+                    type: integer
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+              example:
+                id: 2
+                name: test
+                user_id: 1
+                created_at: '2022-04-16T02:12:34.927Z'
+                updated_at: '2022-04-16T02:12:34.927Z'
+  "/api/v1/todos/{id}":
+    put:
+      summary: update
+      tags:
+      - Api::V1::Todo
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 1
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                todo:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    user_id:
+                      type: string
+            example:
+              todo:
+                name: update_name
+                user_id: '1'
+      responses:
+        '200':
+          description: リクエストが成功すること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  user_id:
+                    type: integer
+                  id:
+                    type: integer
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+              example:
+                name: update_name
+                user_id: 1
+                id: 1
+                created_at: '2022-04-16T02:12:34.964Z'
+                updated_at: '2022-04-16T02:12:34.983Z'
+    delete:
+      summary: destroy
+      tags:
+      - Api::V1::Todo
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: リクエストが成功すること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  user_id:
+                    type: integer
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+              example:
+                id: 1
+                name: Soluta aliquam earum a.
+                user_id: 1
+                created_at: '2022-04-16T02:12:35.019Z'
+                updated_at: '2022-04-16T02:12:35.019Z'
+  "/api/v1/users":
+    get:
+      summary: index
+      tags:
+      - Api::V1::User
+      responses:
+        '200':
+          description: リクエストが成功すること
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    uid:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+              example:
+              - id: 1
+                name: Rhoda Stark
+                email: rowena@leuschke-robel.biz
+                uid: '5'
+                created_at: '2022-04-16T02:38:11.197Z'
+                updated_at: '2022-04-16T02:38:11.197Z'
+    post:
+      summary: create
+      tags:
+      - Api::V1::User
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+                    uid:
+                      type: string
+            example:
+              user:
+                name: Kyle Homenick PhD
+                email: wilford_schmidt@wiza.com
+                uid: '6'
+      responses:
+        '201':
+          description: リクエストが成功すること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+                  uid:
+                    type: string
+                  created_at:
+                    type: string
+                  updated_at:
+                    type: string
+              example:
+                id: 1
+                name: Kyle Homenick PhD
+                email: wilford_schmidt@wiza.com
+                uid: '6'
+                created_at: '2022-04-16T02:38:11.251Z'
+                updated_at: '2022-04-16T02:38:11.251Z'
